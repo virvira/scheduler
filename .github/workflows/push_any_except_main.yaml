@@ -23,4 +23,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/diploma:${{ env.BRANCH_NAME }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/scheduler:${{ env.BRANCH_NAME }}
