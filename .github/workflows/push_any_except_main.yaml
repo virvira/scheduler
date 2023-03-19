@@ -7,9 +7,10 @@ on:
 
 
 jobs:
-  runs-on: ubuntu-latest
-  env:
-    BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+  build:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
     steps:
       - uses: actions/checkout@v3
       - uses: docker/login-action@v2
