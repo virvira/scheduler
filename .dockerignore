@@ -1,0 +1,9 @@
+# ignore all
+**
+
+# expect
+!todolist/**
+!core/**
+!entrypoint.sh
+!requirements.txt
+!manage.py
