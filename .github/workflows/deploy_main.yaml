@@ -9,7 +9,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: build
-        run: docker build -t virvira/scheduler:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
+        run: docker build -t virvira/scheduler:latest .
       - name: login
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
       - name: push
