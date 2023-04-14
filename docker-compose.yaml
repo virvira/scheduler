@@ -15,7 +15,7 @@ services:
       - diploma_pg_data:/var/lib/postgresql/data
     healthcheck:
       test: pg_isready -U ${DATABASE_USER} -d ${DATABASE_NAME}
-      timeout: 3s
+      timeout: 6s
       retries: 10
       interval: 3s
 
