@@ -1,21 +1,36 @@
+from typing import Optional
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
 class Solution:
-    def isValid(self, s: str) -> bool:
-        brackets = {
-            '(': ')',
-            '{': '}',
-            '[': ']'
-        }
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode()
+        tail = dummy
 
-        brackets_list = []
+        while list1 and list2:
+            if list1.val < list2.val:
+                tail.next = list1
+                list1 = list1.next
+            else:
+                tail.next = list2
+                list2 = list2.next
+            tail = tail.next
 
-        for item in s:
-            if item in brackets.keys():
-                brackets_list.append(item)
-            elif len(brackets_list) == 0 or brackets[brackets_list.pop()] != item:
-                return False
+        if list1:
+            tail.next = list1
+        elif list2:
+            tail.next = list2
 
-        return len(brackets_list) == 0
+        return dummy.next
 
 
 sol = Solution()
-print(sol.isValid('()'))
+l1 = ListNode()
+l2 = ListNode()
+l1 = [1,2,4]
+sol.mergeTwoLists([1,2,4], [1,3,4])
