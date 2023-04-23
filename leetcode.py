@@ -1,36 +1,20 @@
-from typing import Optional
+def binary_search(_list, item):
+    low = 0
+    high = len(_list)-1
+
+    while low <= high:
+        mid = (low + high)/2
+        guess = _list[mid]
+        if guess == item:
+            return mid
+        if guess > item:
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return None
 
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+my_list = [1, 3, 5, 7, 9]
 
-
-class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode()
-        tail = dummy
-
-        while list1 and list2:
-            if list1.val < list2.val:
-                tail.next = list1
-                list1 = list1.next
-            else:
-                tail.next = list2
-                list2 = list2.next
-            tail = tail.next
-
-        if list1:
-            tail.next = list1
-        elif list2:
-            tail.next = list2
-
-        return dummy.next
-
-
-sol = Solution()
-l1 = ListNode()
-l2 = ListNode()
-l1 = [1,2,4]
-sol.mergeTwoLists([1,2,4], [1,3,4])
+print(binary_search(my_list, 3))
