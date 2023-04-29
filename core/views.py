@@ -11,7 +11,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 
 from core.models import User
-from core.serializers import UserCreateSerializer, UserLoginSerializer, ProfileSerializer
+from core.serializers import UserCreateSerializer, UserLoginSerializer, ProfileSerializer, UpdatePasswordSerializer
 
 
 class UserCreateView(generics.CreateAPIView):
@@ -44,7 +44,7 @@ class ProfileView(RetrieveUpdateDestroyAPIView):
 
 class UpdatePasswordView(UpdateAPIView):
     queryset = User.objects.all()
-    serializer_class = User
+    serializer_class = UpdatePasswordSerializer
     permission_classes = (IsAuthenticated,)
 
     def get_object(self):

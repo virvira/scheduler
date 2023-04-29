@@ -60,7 +60,7 @@ class UpdatePasswordSerializer(serializers.Serializer):
     old_password = PasswordFieldSerializer(required=True)
     new_password = PasswordFieldSerializer(required=True)
 
-    def validate_old_password(self, old_password) -> old_password:
+    def validate_old_password(self, old_password: str) -> old_password:
         if not isinstance(self.instance, User):
             raise NotImplementedError
         if not self.instance.check_password(old_password):
@@ -69,5 +69,5 @@ class UpdatePasswordSerializer(serializers.Serializer):
 
     def update(self, instance: User, validated_data: dict) -> User:
         instance.set_password(validated_data['new_password'])
-        instance.save(update_fields=('password', ))
+        instance.save(update_fields=('password',))
         return instance
