@@ -34,6 +34,7 @@ services:
     volumes:
       - ./core:/opt/core/
       - ./todolist:/opt/todolist/
+      - ./goals:/opt/goals/
 
   collect_static:
     build: .
