@@ -31,7 +31,6 @@ class UserLoginView(generics.CreateAPIView):
 
 
 class ProfileView(RetrieveUpdateDestroyAPIView):
-    queryset = User.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = (IsAuthenticated,)
 
@@ -43,7 +42,6 @@ class ProfileView(RetrieveUpdateDestroyAPIView):
 
 
 class UpdatePasswordView(UpdateAPIView):
-    queryset = User.objects.all()
     serializer_class = UpdatePasswordSerializer
     permission_classes = (IsAuthenticated,)
 
