@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'social_django',
-    'core'
+    'django_filters',
+    'core',
+    'goals'
 ]
 
 if DEBUG:
