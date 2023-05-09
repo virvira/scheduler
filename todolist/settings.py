@@ -45,13 +45,14 @@ INSTALLED_APPS = [
     'social_django',
     'django_filters',
     'core',
-    'goals'
+    'goals',
+    'bot'
 ]
 
-# if DEBUG:
-#     INSTALLED_APPS += [
-#         'django_extensions'
-#     ]
+if DEBUG:
+    INSTALLED_APPS += [
+        'django_extensions'
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -155,3 +156,6 @@ SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
 SOCIAL_AUTH_VK_EXTRA_DATA = [('email', 'email')]
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/logged-in/'
 SOCIAL_AUTH_USER_MODEL = 'core.User'
+
+
+BOT_TOKEN = os.environ.get('BOT_TOKEN')

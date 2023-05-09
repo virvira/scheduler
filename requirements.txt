@@ -44,12 +44,15 @@ psycopg2-binary==2.9.5
 ptyprocess==0.7.0
 pycodestyle==2.10.0
 pycparser==2.21
+pydantic==1.10.7
 pyflakes==3.0.1
 PyJWT==2.6.0
 pyparser==1.0
 pyparsing==3.0.9
 pyproject_hooks==1.0.0
 pyrsistent==0.19.3
+pytest-django==4.5.2
+pytest-factoryboy==2.5.1
 python-dotenv==1.0.0
 python3-openid==3.2.0
 pytz==2023.3
