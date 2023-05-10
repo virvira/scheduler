@@ -3,7 +3,7 @@ from django.utils import timezone
 from pytest_factoryboy import register
 
 from core.models import User
-from goals.models import Board
+from goals.models import Board, BoardParticipant, GoalCategory, Goal, GoalComment
 
 
 @register
@@ -34,3 +34,38 @@ class BoardFactory(DatesFactoryMixin):
         model = Board
 
     title = factory.Faker('sentence')
+
+    @factory.post_generation
+    def with_owner(self, create, owner, **kwargs):
+        if owner:
+            BoardParticipant.objects.create(board=self, user=owner, role=BoardParticipant.Role.owner)
+
+
+@register
+class CategoryFactory(DatesFactoryMixin):
+    user = factory.SubFactory(UserFactory)
+    title = factory.Faker('sentence')
+    board = factory.SubFactory(BoardFactory)
+
+    class Meta:
+        model = GoalCategory
+
+
+@register
+class GoalFactory(DatesFactoryMixin):
+    user = factory.SubFactory(UserFactory)
+    category = factory.SubFactory(CategoryFactory)
+    title = factory.Faker('sentence')
+
+    class Meta:
+        model = Goal
+
+
+@register
+class GoalCommentFactory(DatesFactoryMixin):
+    goal = factory.SubFactory(GoalFactory)
+    user = factory.SubFactory(UserFactory)
+    text = factory.Faker('sentence')
+
+    class Meta:
+        model = GoalComment
