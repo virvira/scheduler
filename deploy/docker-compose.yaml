@@ -28,6 +28,19 @@ services:
       db:
         condition: service_healthy
 
+  bot:
+    image: virvira/scheduler:latest
+    build: .
+    env_file: .env
+    environment:
+      POSTGRES_HOST: db
+    depends_on:
+      collect_static:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+    command: python manage.py runbot
+
   collect_static:
     image: virvira/scheduler:latest
     env_file: .env
