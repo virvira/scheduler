@@ -28,7 +28,7 @@ class TestCategoryCreateView:
 
     def test_create_success(self, auth_client, board) -> None:
         """
-        Успешное создание категории целей
+        Авторизованный пользователь успешно создает категорию целей
         """
         board, _ = board
         response = auth_client.post(self.url, data={
