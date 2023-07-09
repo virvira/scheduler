@@ -20,8 +20,8 @@
 1. Создать виртуальное окружение
 `python3 -m venv venv`
 2. Активировать виртуальное окружение
-`venv/Scripts/activate (Windows)`
-`source venv/bin/activate (MacOS)`
+- `venv/Scripts/activate (Windows)`
+- `source venv/bin/activate (MacOS)`
 2. Установить зависимости
 `pip install -r requirements.txt`
 2. Создать файл .env c переменными окружения
